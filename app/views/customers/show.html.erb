@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @customer.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @customer.last_name %>
+</p>
+
+<p>
+  <strong>Kanji first name:</strong>
+  <%= @customer.kanji_first_name %>
+</p>
+
+<p>
+  <strong>Kanji last name:</strong>
+  <%= @customer.kanji_last_name %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @customer.sex %>
+</p>
+
+<p>
+  <strong>Tel japan:</strong>
+  <%= @customer.tel_japan %>
+</p>
+
+<p>
+  <strong>Email japan:</strong>
+  <%= @customer.email_japan %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @customer.address %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @customer.remark %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-link" %> |
+<%= link_to 'Back', customers_path, class: "btn btn-link" %>

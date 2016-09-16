@@ -1,0 +1,2 @@
+json.extract! customer, :id, :first_name, :last_name, :kanji_first_name, :kanji_last_name, :sex, :tel_japan, :email_japan, :address, :remark, :created_at, :updated_at
+json.url customer_url(customer, format: :json)
