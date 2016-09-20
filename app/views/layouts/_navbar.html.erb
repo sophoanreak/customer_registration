@@ -18,8 +18,9 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
             	<% if user_signed_in? %>
+                <li><a><%= " Hello! #{current_user.first_name.capitalize} #{current_user.last_name.capitalize[0]}." %></a></li>
                 <li><%= link_to "Log-out", destroy_user_session_path, method: :delete %></li> 
-            		<li><%= link_to "Edit-Profile", edit_user_registration_path %></li>	
+                <li><%= link_to "Edit-Profile", edit_user_registration_path %></li>	
             	<% else %>
             		<li><%= link_to "Sign-in", new_user_session_path %></li>
             	<% end %>
