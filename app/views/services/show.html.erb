@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank name:</strong>
+  <%= @service.bank_name %>
+</p>
+
+<p>
+  <strong>Acct name:</strong>
+  <%= @service.acct_name %>
+</p>
+
+<p>
+  <strong>Acct num:</strong>
+  <%= @service.acct_num %>
+</p>
+
+<p>
+  <strong>Tel bank acct:</strong>
+  <%= @service.tel_bank_acct %>
+</p>
+
+<p>
+  <strong>Email bank acct:</strong>
+  <%= @service.email_bank_acct %>
+</p>
+
+<p>
+  <strong>Support:</strong>
+  <%= @service.support %>
+</p>
+
+<p>
+  <strong>Sevice:</strong>
+  <%= @service.sevice %>
+</p>
+
+<p>
+  <strong>Date create:</strong>
+  <%= @service.date_create %>
+</p>
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
