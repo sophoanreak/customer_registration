@@ -55,5 +55,10 @@
   <%= @customer.remark %>
 </p>
 
+<p>
+  <strong>Remark:</strong>
+  <%= @customer.user_id %>
+</p>
+
 <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-link" %> |
 <%= link_to 'Back', customers_path, class: "btn btn-link" %>
