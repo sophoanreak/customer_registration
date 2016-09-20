@@ -52,4 +52,6 @@ gem 'pg', group: :production
 
 gem 'carrierwave'
 
+gem 'devise'
+
 gem 'mini_magick'
