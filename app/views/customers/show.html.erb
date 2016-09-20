@@ -43,6 +43,16 @@
 </p>
 
 <p>
+  <strong>Type of Customer:</strong>
+  <%= @customer.customer_type %>
+</p>
+
+<p>
+  <strong>Date of Arrival:</strong>
+  <%= @customer.arrival_date.strftime("%d/%-b/%-y") %>
+</p>
+
+<p>
   <strong>Remark:</strong>
   <%= @customer.remark %>
 </p>
