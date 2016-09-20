@@ -8,17 +8,20 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">CUSTOMER REGISTRATION</a>
+            <%= link_to "CUSTOMER REGISTRATION", root_path, class: "navbar-brand" %>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="/">HOME</a></li>
-              <li><a href="/pages/about">ABOUT</a></li>
-              <li><a href="/pages/contact">CONTACT</a></li>
+              <li><%= link_to "HOME", root_path %></li>
+              <li><%= link_to "ABOUT", pages_about_path %></li>
+              <li><%= link_to "CONTACT", pages_contact_path %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/">Log-in</a></li>
-              <li><a href="/">Log-out</a></li>
+            	<% if user_signed_in? %>
+            		<li><%= link_to "Log-out", destroy_user_session_path, method: :delete %></li>	
+            	<% else %>
+            		<li><%= link_to "Sign-in", new_user_session_path %></li>
+            	<% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

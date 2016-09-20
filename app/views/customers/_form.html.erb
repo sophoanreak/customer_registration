@@ -33,7 +33,7 @@
   </div>
   <div class="form-group">
     <%= f.label :sex %><br>
-    <%= f.text_field :sex, class: "form-control"  %>
+    <%= f.select :sex, ['M', 'F'], class:"selectpicker"  %>
   </div>
   <div class="form-group">
     <%= f.label :tel_japan %><br>
@@ -49,11 +49,12 @@
   </div>  
   <div class="form-group">
     <%= f.label :date %><br>
-    <%= f.text_field :arrival_date, class: "form-control", placeholder: "2016-05-06" %>
+    <%= f.date_select :arrival_date, {:order => [:day, :month, :year], :start_year => 1920, :end_year => 2020},
+      :class => "selectpicker" %>
   </div>  
   <div class="form-group">
     <%= f.label :type %><br>
-	<%= f.select :customer_type, ['Come', 'Send files'], {}, class:"selectpicker" %>
+	<%= f.select :customer_type, ['Come', 'Send files'], class:"selectpicker" %>
   </div>
   <div class="form-group">
     <%= f.label :remark %><br>
@@ -63,3 +64,5 @@
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+create_date, 
+       %>
