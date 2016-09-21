@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date create:</strong>
+  <%= @customer_history.date_create %>
+</p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @customer_history.problem %>
+</p>
+
+<p>
+  <strong>Solution:</strong>
+  <%= @customer_history.solution %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @customer_history.remark %>
+</p>
+
+<%= link_to 'Edit', edit_customer_history_path(@customer_history) %> |
+<%= link_to 'Back', '#' %>

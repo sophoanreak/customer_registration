@@ -1,0 +1,33 @@
+<%= form_for([@customer, @customer_history]) do |f| %>
+  <% if @customer_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer_history.errors.count, "error") %> prohibited this customer_history from being saved:</h2>
+
+      <ul>
+      <% @customer_history.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date_create %><br>
+    <%= f.date_select :date_create %>
+  </div>
+  <div class="field">
+    <%= f.label :problem %><br>
+    <%= f.text_field :problem %>
+  </div>
+  <div class="field">
+    <%= f.label :solution %><br>
+    <%= f.text_field :solution %>
+  </div>
+  <div class="field">
+    <%= f.label :remark %><br>
+    <%= f.text_field :remark %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

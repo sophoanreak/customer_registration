@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Customer Histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date create</th>
+      <th>Problem</th>
+      <th>Solution</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer_histories.each do |customer_history| %>
+      <tr>
+        <td><%= customer_history.date_create %></td>
+        <td><%= customer_history.problem %></td>
+        <td><%= customer_history.solution %></td>
+        <td><%= customer_history.remark %></td>
+        <td><%= link_to 'Show', customer_history %></td>
+        <td><%= link_to 'Edit', edit_customer_history_path(customer_history) %></td>
+        <td><%= link_to 'Destroy', customer_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer history', new_customer_history_path %>
