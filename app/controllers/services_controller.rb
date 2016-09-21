@@ -29,7 +29,7 @@ class ServicesController < ApplicationController
     @service.customer_id = @customer.id
     respond_to do |format|
       if @service.save
-        format.html { redirect_to root_path, notice: 'Service was successfully created.' }
+        format.html { redirect_to customer_path(@customer), notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
