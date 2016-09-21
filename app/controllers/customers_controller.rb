@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @services = Service.where(customer_id: @customer.id)
   end
 
   # GET /customers/new
