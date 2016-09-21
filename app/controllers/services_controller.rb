@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_customer
+  before_action :authenticate_user!
   # GET /services
   # GET /services.json
   def index
@@ -25,10 +26,10 @@ class ServicesController < ApplicationController
   # POST /services.json
   def create
     @service = Service.new(service_params)
-
+    @service.customer_id = @customer.id
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -67,6 +68,9 @@ class ServicesController < ApplicationController
       @service = Service.find(params[:id])
     end
 
+    def set_customer
+      @customer = Customer.find(params[:customer_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
       params.require(:service).permit(:bank_name, :acct_name, :acct_num, :tel_bank_acct, :email_bank_acct, :support, :sevice, :date_create)

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :services
+  
   devise_for :users
-  resources :customers
+  resources :customers do 
+    resources :services
+  end
   get 'pages/about'
 
   get 'pages/contact'
