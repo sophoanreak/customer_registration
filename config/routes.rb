@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :references
   devise_for :users
   resources :customers do 
+    collection do
+      get 'search'
+    end
     resources :services, :customer_histories
   end
   get 'pages/about'

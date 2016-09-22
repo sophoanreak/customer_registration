@@ -1,0 +1,38 @@
+<h1>Listing Customers</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Sex</th>
+      <th>Tel japan</th>
+      <th>Email japan</th>
+      <th>Address</th>
+      <th>Remark</th>
+      <% if user_signed_in? && current_user.admin? %>
+        <th colspan="2"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each_with_index do |customer, i| %>
+      <tr>
+        <td><b><%= i+1 %></b></td>
+        <td><%= link_to customer.first_name, customer %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= customer.sex %></td>
+        <td><%= customer.tel_japan %></td>
+        <td><%= customer.email_japan %></td>
+        <td><%= customer.address %></td>
+        <td><%= customer.remark %></td>
+        <% if user_signed_in? && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+          <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

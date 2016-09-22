@@ -55,3 +55,5 @@ gem 'carrierwave'
 gem 'devise'
 
 gem 'mini_magick'
+
+gem 'searchkick'

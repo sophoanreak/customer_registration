@@ -5,4 +5,5 @@ class Customer < ActiveRecord::Base
 	has_many :services, dependent: :destroy
 	has_many :customer_histories, dependent: :destroy
 	belongs_to :reference
+	searchkick
 end
