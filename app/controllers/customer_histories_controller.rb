@@ -44,7 +44,7 @@ class CustomerHistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @customer_history.update(customer_history_params)
-        format.html { redirect_to @customer_history, notice: 'Customer history was successfully updated.' }
+        format.html { redirect_to customer_path(@customer), notice: 'Customer history was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer_history }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class CustomerHistoriesController < ApplicationController
   def destroy
     @customer_history.destroy
     respond_to do |format|
-      format.html { redirect_to customer_histories_url, notice: 'Customer history was successfully destroyed.' }
+      format.html { redirect_to customer_path(@customer), notice: 'Customer history was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

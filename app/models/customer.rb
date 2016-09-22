@@ -4,4 +4,5 @@ class Customer < ActiveRecord::Base
 	belongs_to :user
 	has_many :services, dependent: :destroy
 	has_many :customer_histories, dependent: :destroy
+	belongs_to :reference
 end

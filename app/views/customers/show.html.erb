@@ -48,6 +48,10 @@
       <strong>Type of Customer:</strong>
       <%= @customer.customer_type %>
     </p>
+    <p>
+      <strong>Referrer</strong>
+      <%= @customer.service_id %>
+    </p>
 
     <p>
       <strong>Date of Arrival:</strong>
@@ -66,14 +70,6 @@
 
     <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-link" %> |
     <%= link_to 'Back', customers_path, class: "btn btn-link" %>
-
-
-    <% if user_signed_in?%>
-            <% if (current_user.admin?) %>
-              <br>
-               <%= link_to "Create New Service", new_customer_service_path(@customer), class: "btn btn-primary" %> 
-            <% end %>
-          <% end %>
     
   </div>
   <div class = "col-md-9">
@@ -123,5 +119,91 @@
         <% end %>
       </table>
     <% end %>
+
+     <% if user_signed_in?%>
+            <% if (current_user.admin?) %>
+              <br>
+               <%= link_to "Create New Service", new_customer_service_path(@customer), class: "btn btn-primary" %> 
+            <% end %>
+    <% end %>
+   
+
+      <h3>Histories</h3>
+    <% if @customer_histories.blank? %>
+      <h3>No history yet, Be the first to add one!</h3>
+    <% else %>
+      <table class = "table">
+        <thead>
+
+          <th>No</th>
+          <th>Problem</th>
+          <th>solution</th>
+          <th>Remark</th>
+          <th>Date</th>
+          <% if user_signed_in? %>
+            <% if (current_user.admin?) %>
+              <th></th>
+              <th></th>
+            <% end %>
+          <% end %>
+
+        </thead>
+        <% @customer_histories.each do |customer_history| %>
+        <tbody>
+          
+          <td><p></p></td>
+          <td><p><%= customer_history.problem %></p></td>
+          <td><p><%= customer_history.solution %></p></td>  
+          <td><p><%= customer_history.remark %></p></td>  
+          <td><p><%= customer_history.date_create.strftime("%d/%-b/%-Y") %></p></td>  
+          <% if user_signed_in?%>
+            <% if (current_user.admin?) %>
+              <td><%= link_to "Edit", edit_customer_customer_history_path(@customer, customer_history) %></td>
+              <td><%= link_to "Delete", customer_customer_history_path(@customer, customer_history), method: :delete %></td> 
+            <% end %>
+          <% end %>
+        </tbody>
+        <% end %>
+      </table>
+    <% end %>
+     <% if user_signed_in?%>
+            <% if (current_user.admin?) %>
+              <br>
+               <%= link_to "Create New history", new_customer_customer_history_path(@customer), class: "btn btn-primary" %> 
+            <% end %>
+          <% end %>
+
+        <h3>Referer</h3>
+    <% if @references.blank? %>
+      <h3>No referer yet, Be the first to add one!</h3>
+    <% else %>
+      <table class = "table">
+        <thead>
+
+          <th>No</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Sex</th>
+          <th>Tel</th>
+          <th>Email</th>
+          <th>Company Address</th>
+
+        </thead>
+        <% @references.each do |reference| %>
+        <tbody>
+          
+          <td><p><%= reference.id %></p></td>
+          <td><p><%= reference.first_name %></p></td>
+          <td><p><%= reference.last_name %></p></td>  
+          <td><p><%= reference.sex %></p></td>  
+          <td><p><%= reference.tel %></p></td>  
+          <td><p><%= reference.email %></p></td>  
+          <td><p><%= reference.company_address %></p></td>   
+          
+        </tbody>
+        <% end %>
+      </table>
+    <% end %>
+    
   </div>
 </div>

@@ -8,6 +8,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>No</th>
       <th>First name</th>
       <th>Last name</th>
       <th>Sex</th>
@@ -22,8 +23,9 @@
   </thead>
 
   <tbody>
-    <% @customers.each do |customer| %>
+    <% @customers.each_with_index do |customer, i| %>
       <tr>
+        <td><b><%= i+1 %></b></td>
         <td><%= link_to customer.first_name, customer %></td>
         <td><%= customer.last_name %></td>
         <td><%= customer.sex %></td>
@@ -41,6 +43,14 @@
 </table>
 
 <br>
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
-<% end %>
+
+<div class="row">
+  <div class="col-md-10">
+    <% if user_signed_in? && current_user.admin? %>
+      <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-md-2 right">
+     <%= link_to 'Show References', references_path, class: "btn btn-primary" %>
+  </div>
+</div>

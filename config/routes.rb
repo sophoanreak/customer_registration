@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  resources :references
   devise_for :users
   resources :customers do 
     resources :services, :customer_histories

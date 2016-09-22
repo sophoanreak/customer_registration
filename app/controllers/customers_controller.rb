@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, except: [:index, :show]
+
   # GET /customers
   # GET /customers.json
   def index
@@ -12,6 +13,8 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show
     @services = Service.where(customer_id: @customer.id)
+    @customer_histories = CustomerHistory.where(customer_id: @customer.id)
+    @references = Reference.where(id: @customer.service_id)
   end
 
   # GET /customers/new
@@ -28,7 +31,6 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     @customer.user_id = current_user.id
-    
 
     respond_to do |format|
       if @customer.save
@@ -79,6 +81,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:first_name, :last_name, :kanji_first_name, :kanji_last_name, :sex, :tel_japan, :email_japan, :address, :remark, :image, :arrival_date, :customer_type)
+      params.require(:customer).permit(:first_name, :last_name, :kanji_first_name, :kanji_last_name, :sex, :tel_japan, :email_japan, :address, :remark, :image, :arrival_date, :customer_type, :service_id)
     end
 end
