@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, except: [:index, :show]
+  before_action :check_reference, except: [:index, :show]
   
   # GET /customers
   # GET /customers.json
@@ -18,7 +19,7 @@ class CustomersController < ApplicationController
     if Reference.exists?(@customer.service_id)
       @refer = Reference.find(@customer.service_id)
     else
-      redirect_to edit_customer_path(@customer.service_id), alert: "Sorry, Referrer does not exist. Need a referrer"
+      redirect_to root_path, alert: "Please, Edit the existing data (Referrer). Need a referrer to go onward"
     end
   end
 
@@ -81,6 +82,14 @@ class CustomersController < ApplicationController
     def check_user
       unless current_user.admin?
         redirect_to root_url, alert: "sorry, you are not an admin"
+      end
+    end
+
+    def check_reference
+      if Reference.exists?
+        
+      else
+        redirect_to new_reference_path, alert: "Please, Create a Nil data or insert a real data to begin"
       end
     end
 

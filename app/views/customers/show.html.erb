@@ -189,6 +189,12 @@
           <th>Tel</th>
           <th>Email</th>
           <th>Company Address</th>
+          <% if user_signed_in?%>
+            <% if (current_user.admin?) %>
+              <br>
+               <th></th> 
+            <% end %>
+          <% end %>
 
         </thead>
         <% @references.each do |reference| %>
@@ -201,6 +207,12 @@
           <td><p><%= reference.tel %></p></td>  
           <td><p><%= reference.email %></p></td>  
           <td><p><%= reference.company_address %></p></td>   
+          <% if user_signed_in?%>
+            <% if (current_user.admin?) %>
+              <br>
+               <th><%= link_to "Edit", edit_reference_path(reference) %></th> 
+            <% end %>
+          <% end %>
           
         </tbody>
         <% end %>
