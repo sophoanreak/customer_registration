@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :check_user, except: [:index, :show]
-
+  
   # GET /customers
   # GET /customers.json
   def index
@@ -15,6 +15,11 @@ class CustomersController < ApplicationController
     @services = Service.where(customer_id: @customer.id)
     @customer_histories = CustomerHistory.where(customer_id: @customer.id)
     @references = Reference.where(id: @customer.service_id)
+    if Reference.exists?(@customer.service_id)
+      @refer = Reference.find(@customer.service_id)
+    else
+      redirect_to edit_customer_path(@customer.service_id), alert: "Sorry, Referrer does not exist. Need a referrer"
+    end
   end
 
   # GET /customers/new
