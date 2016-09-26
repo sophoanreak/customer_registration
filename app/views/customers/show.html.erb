@@ -70,8 +70,8 @@
       <%= @customer.user.first_name %> <%= @customer.user.last_name %>
     </p>
 
-    <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-link" %> |
-    <%= link_to 'Back', customers_path, class: "btn btn-link" %>
+    <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-primary" %> |
+    <%= link_to 'Back', customers_path, class: "btn btn-primary" %>
     
   </div>
   <div class = "col-md-9">
@@ -99,10 +99,10 @@
           <% end %>
 
         </thead>
-        <% @services.each do |service| %>
+        <% @services.each_with_index do |service, i| %>
         <tbody>
           
-          <td><p></p></td>
+          <td><p><%= i+1 %></p></td>
           <td><p><%= service.bank_name %></p></td>
           <td><p><%= service.acct_name %></p></td>  
           <td><p><%= service.acct_num %></p></td>  
@@ -150,10 +150,10 @@
           <% end %>
 
         </thead>
-        <% @customer_histories.each do |customer_history| %>
+        <% @customer_histories.each_with_index do |customer_history, i| %>
         <tbody>
           
-          <td><p></p></td>
+          <td><p><%= i+1 %></p></td>
           <td><p><%= customer_history.problem %></p></td>
           <td><p><%= customer_history.solution %></p></td>  
           <td><p><%= customer_history.remark %></p></td>  
@@ -197,10 +197,10 @@
           <% end %>
 
         </thead>
-        <% @references.each do |reference| %>
+        <% @references.each_with_index do |reference, i| %>
         <tbody>
           
-          <td><p><%= reference.id %></p></td>
+          <td><p><%= i+1 %></p></td>
           <td><p><%= reference.first_name %></p></td>
           <td><p><%= reference.last_name %></p></td>  
           <td><p><%= reference.sex %></p></td>  

@@ -1,0 +1,25 @@
+<h1 class= "text-center">Listing Emails</h1>
+
+<div class="row">
+
+	<h3><b><%= "Total Number of Emails: " %>
+	<%= @customers.size %></b></h3>
+
+</div>
+
+<div class="row">
+	<% @customers.each_with_index do |customer, i| %>
+	    <%= customer.email_japan %><% i+1 %><% if i == @customers.size-1 %><% else %><%= ", " %><% end %>
+	<% end %>
+</div>
+
+
+<br>
+<div class="row">
+	<div class = "col-md-10">
+		
+	</div>
+	<div class = "col-md-2 right-text">
+		<%= link_to 'Back Home', root_path, class: "btn btn-primary" %>
+	</div>
+</div>

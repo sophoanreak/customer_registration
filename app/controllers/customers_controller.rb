@@ -10,12 +10,16 @@ class CustomersController < ApplicationController
     else
       @customers = Customer.all
     end
+  end  
+
+  def email
+       @customers = Customer.all.order("created_at DESC")
   end
 
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.all.order("created_at DESC").paginate(page: params[:page], per_page: 8)
   end
 
   # GET /customers/1

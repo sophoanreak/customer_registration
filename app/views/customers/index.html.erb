@@ -41,16 +41,22 @@
     <% end %>
   </tbody>
 </table>
-
+<div class = "text-center">
+  <%= will_paginate @posts, :renderer => BootstrapPagination::Rails, previous_label: "Newer", next_label: "Older" %>
+</div>
 <br>
 
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-9">
     <% if user_signed_in? && current_user.admin? %>
       <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
     <% end %>
   </div>
-  <div class="col-md-2 right">
+  <div class="col-md-3 right">
      <%= link_to 'Show References', references_path, class: "btn btn-primary" %>
+     <% if user_signed_in? && current_user.admin? %>
+      <%= link_to 'All Emails', "customers/email", class: "btn btn-primary" %>
+     <% end %>
   </div>
 </div>
+

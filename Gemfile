@@ -57,3 +57,7 @@ gem 'devise'
 gem 'mini_magick'
 
 gem 'searchkick'
+
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'will_paginate-bootstrap'

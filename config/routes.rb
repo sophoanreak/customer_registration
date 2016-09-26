@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :customers do 
     collection do
+      get 'email'
       get 'search'
     end
     resources :services, :customer_histories

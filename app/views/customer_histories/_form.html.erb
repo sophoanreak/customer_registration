@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date_create %><br>
-    <%= f.date_select :date_create %>
-  </div>
-  <div class="field">
     <%= f.label :problem %><br>
     <%= f.text_field :problem %>
   </div>
@@ -27,7 +23,12 @@
     <%= f.label :remark %><br>
     <%= f.text_field :remark %>
   </div>
+  <div class="field">
+    <%= f.label :date_create %><br>
+    <%= f.date_select :date_create %>
+  </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
