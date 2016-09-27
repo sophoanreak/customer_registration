@@ -6,14 +6,14 @@ class CustomersController < ApplicationController
   
   def search
     if params[:search].present?
-      @customers = Customer.search(params[:search])
+      @customers = Customer.search(params[:search], page: params[:page], per_page: 5)
     else
-      @customers = Customer.all
+      @customers = Customer.all.paginate(page: params[:page], per_page: 5)
     end
   end  
 
   def email
-       @customers = Customer.all.order("created_at DESC")
+       @customers = Customer.all.order("created_at DESC").paginate(page: params[:page], per_page: 120)
   end
 
   # GET /customers
@@ -25,8 +25,8 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
-    @services = Service.where(customer_id: @customer.id)
-    @customer_histories = CustomerHistory.where(customer_id: @customer.id)
+    @services = Service.where(customer_id: @customer.id).order("created_at DESC")
+    @customer_histories = CustomerHistory.where(customer_id: @customer.id).order("created_at DESC")
     @references = Reference.where(id: @customer.service_id)
     if Reference.exists?(@customer.service_id)
       @refer = Reference.find(@customer.service_id)

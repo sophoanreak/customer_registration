@@ -102,7 +102,7 @@
         <% @services.each_with_index do |service, i| %>
         <tbody>
           
-          <td><p><%= i+1 %></p></td>
+          <td><p><b><%= i+1 %></b></p></td>
           <td><p><%= service.bank_name %></p></td>
           <td><p><%= service.acct_name %></p></td>  
           <td><p><%= service.acct_num %></p></td>  
@@ -153,7 +153,7 @@
         <% @customer_histories.each_with_index do |customer_history, i| %>
         <tbody>
           
-          <td><p><%= i+1 %></p></td>
+          <td><p><b><%= i+1 %></b></p></td>
           <td><p><%= customer_history.problem %></p></td>
           <td><p><%= customer_history.solution %></p></td>  
           <td><p><%= customer_history.remark %></p></td>  
@@ -189,31 +189,19 @@
           <th>Tel</th>
           <th>Email</th>
           <th>Company Address</th>
-          <% if user_signed_in?%>
-            <% if (current_user.admin?) %>
-              <br>
-               <th></th> 
-            <% end %>
-          <% end %>
 
         </thead>
         <% @references.each_with_index do |reference, i| %>
         <tbody>
           
-          <td><p><%= i+1 %></p></td>
+          <td><p><b><%= i+1 %></b></p></td>
           <td><p><%= reference.first_name %></p></td>
           <td><p><%= reference.last_name %></p></td>  
           <td><p><%= reference.sex %></p></td>  
           <td><p><%= reference.tel %></p></td>  
           <td><p><%= reference.email %></p></td>  
           <td><p><%= reference.company_address %></p></td>   
-          <% if user_signed_in?%>
-            <% if (current_user.admin?) %>
-              <br>
-               <th><%= link_to "Edit", edit_reference_path(reference) %></th> 
-            <% end %>
-          <% end %>
-          
+                    
         </tbody>
         <% end %>
       </table>

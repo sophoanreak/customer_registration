@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      customer:
+        service_id: "Referrer"

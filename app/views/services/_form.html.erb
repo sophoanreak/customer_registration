@@ -1,6 +1,7 @@
 <%= form_for([@customer, @service]) do |f| %>
   <% if @service.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
       <ul>
@@ -13,31 +14,31 @@
 
   <div class="field">
     <%= f.label :bank_name %><br>
-    <%= f.text_field :bank_name %>
+    <%= f.select :bank_name, ['Acleda Bank', 'Maybank'], class:"selectpicker" %>
   </div>
   <div class="field">
     <%= f.label :acct_name %><br>
-    <%= f.text_field :acct_name %>
+    <%= f.text_field :acct_name, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :acct_num %><br>
-    <%= f.text_field :acct_num %>
+    <%= f.text_field :acct_num, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :tel_bank_acct %><br>
-    <%= f.text_field :tel_bank_acct %>
+    <%= f.text_field :tel_bank_acct, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :email_bank_acct %><br>
-    <%= f.text_field :email_bank_acct %>
+    <%= f.text_field :email_bank_acct, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :support %><br>
-    <%= f.text_field :support %>
+    <%= f.text_field :support, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :sevice %><br>
-    <%= f.text_field :sevice %>
+    <%= f.text_field :sevice, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :date_create %><br>
