@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:search, :index, :show]
-  before_action :check_user, except: [:search, :index, :show]
+  before_action :authenticate_user!, except: [:search, :index]
+  before_action :check_user, except: [:search, :index]
   before_action :check_reference, except: [:search, :index, :show]
   
   def search
