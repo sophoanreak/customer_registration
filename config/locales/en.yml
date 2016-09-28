@@ -30,13 +30,17 @@ en:
     last_name: "Last Name"
     kanji_first_name: ""
     kanji_last_name: ""
-    sex: "Sex"
+    sex: "Sex"  
     tel_japan: "Tel Japan"
     email_japan: "Email Japan"
     address: "Address"
     remark: "Remark"
     customer_type: "Customer Type"
     arrival_date: "Arrival Date"
+
+  website:
+    topic: "Customer Registration"
+    sub-topic: "This registration is used to record customers who want to open accounts with Ubiquitous Mekong (Cambodia), Enjoy the software!"
 
   activerecord:
     attributes:
