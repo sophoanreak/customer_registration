@@ -9,13 +9,13 @@
   <thead>
     <tr>
       <th>No</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Sex</th>
-      <th>Tel japan</th>
-      <th>Email japan</th>
-      <th>Address</th>
-      <th>Remark</th>
+      <th><%= t "label.first_name" %></th>
+      <th><%= t "label.last_name" %></th>
+      <th><%= t "label.sex" %></th>
+      <th><%= t "label.tel_japan" %></th>
+      <th><%= t "label.email_japan" %></th>
+      <th><%= t "label.address" %></th>
+      <th><%= t "label.remark" %></th>
       <% if user_signed_in? && current_user.admin? %>
         <th colspan="2"></th>
       <% end %>

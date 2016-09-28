@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
-  resources :references
-  devise_for :users
-  resources :customers do 
-    collection do
-      get 'email'
-      get 'search'
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :references
+    devise_for :users
+    resources :customers do 
+      collection do
+        get 'email'
+        get 'search'
+      end
+      resources :services, :customer_histories
     end
-    resources :services, :customer_histories
   end
-  get 'pages/about'
+    get 'pages/about'
 
-  get 'pages/contact'
+    get 'pages/contact'
   
-  root 'customers#index'
+    root 'customers#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

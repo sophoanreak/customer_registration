@@ -20,8 +20,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  menu:
+    about: "ABOUT"
+    contact: "CONTACT"
+
+  label:
+    image: "Image"
+    first_name: "First Name"
+    last_name: "Last Name"
+    kanji_first_name: ""
+    kanji_last_name: ""
+    sex: "Sex"
+    tel_japan: "Tel Japan"
+    email_japan: "Email Japan"
+    address: "Address"
+    remark: "Remark"
+    customer_type: "Customer Type"
+    arrival_date: "Arrival Date"
+
   activerecord:
     attributes:
       customer:
+        first_name: "First Name"
+        last_name: "Last Name"
+        kanji_first_name: "Kanji First Name"
+        kanji_last_name: "Kanji Last Name"
+        sex: "Sex"
+        tel_japan: "Tel Japan"
+        email_japan: "Email Japan"
+        address: "Address"
+        remark: "Remark"
+        customer_type: "Customer Type"
+        arrival_date: "Arrival Date"
         service_id: "Referrer"
