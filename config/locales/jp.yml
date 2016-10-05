@@ -35,9 +35,11 @@ jp:
     email_japan: "メールアドレス"
     address: "住所"
     remark: "メモー"
-    customer_type: ""
+    customer_type: "顧客"
     arrival_date: "到着日"
     referer: "紹介者"
+    created_at: "開設日付"
+    name_of_creator: "作成者の名前"
 
   activerecord:
     attributes:
@@ -54,6 +56,7 @@ jp:
         customer_type: ""
         arrival_date: "到着日"
         service_id: "紹介者"
+        created_at: "開設日付"
   
   website:
     topic: "お客様登録"
@@ -119,3 +122,6 @@ jp:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
 
+  date:
+    month_names:
+      [1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]

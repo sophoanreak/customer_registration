@@ -13,12 +13,12 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
 
   <div class="row">
+    <div class="form-group col-md-12">
+      <%= f.label :image %><br>
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :first_name %><br>
@@ -28,7 +28,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :last_name %><br>
-        <%= f.text_field :last_name, class: "form-control"  %>
+        <%= f.text_field :last_name, class: "form-control" %>
       </div>
     </div>
   </div>
@@ -37,13 +37,13 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :kanji_first_name %><br>
-        <%= f.text_field :kanji_first_name, class: "form-control"  %>
+        <%= f.text_field :kanji_first_name, class: "form-control" %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :kanji_last_name %><br>
-        <%= f.text_field :kanji_last_name, class: "form-control"  %>
+        <%= f.text_field :kanji_last_name, class: "form-control" %>
       </div>
     </div>
   </div>
@@ -52,53 +52,57 @@
     <div class="col-md-1">
       <div class="form-group">
         <%= f.label :sex %><br>
-        <%= f.select :sex, ['M', 'F'], class:"selectpicker"  %>
+        <%= f.select :sex, ['M', 'F'], {}, class: "form-control" %>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="form-group">
         <%= f.label :tel_japan %><br>
-        <%= f.text_field :tel_japan, class: "form-control"  %>
+        <%= f.text_field :tel_japan, class: "form-control" %>
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-4">
       <div class="form-group">
         <%= f.label :email_japan %><br>
         <%= f.text_field :email_japan, class: "form-control", placeholder: "thou@gmail.com" %>
       </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :address %><br>
-    <%= f.text_area :address, class: "form-control"  %>
-  </div>   
-
-<div class="row">
-    <div class="col-md-3">
-      <div class="form-group">
-        <%= f.label :date %><br>
-        <%= f.date_select :arrival_date, {:order => [:day, :month, :year], :start_year => 1920, :end_year => 2020},
-          :class => "selectpicker" %>
-      </div> 
-    </div>
-    <div class="col-md-3">
+     <div class="col-md-2">
       <div class="form-group">
         <%= f.label :type %><br>
         <%= f.select :customer_type, ['Come', 'Send files'],{} , {class: "form-control"} %>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-2">
       <div class="form-group">
         <%= f.label :Referrer %><br>
-    	  <%= f.collection_select( :service_id, Reference.all, :id, :first_name, { prompt: true}, {class: "form-control"}) %>
+        <%= f.collection_select( :service_id, Reference.all, :id, :first_name, { prompt: true}, {class: "form-control"}) %>
       </div>
+    </div>
   </div>
-</div>
+  
+
+  <div class="row">
+   
+    <div class="col-md-8">
+      <div class="form-group">
+        <%= f.label :arrival_date %><br>
+        <%= f.date_select :arrival_date, {:order => [:day, :month, :year], :start_year => 1920, :end_year => 2020},
+          :class => "selectpicker" %>
+      </div> 
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address %><br>
+    <%= f.text_area :address, class: "form-control" %>
+  </div> 
   <div class="form-group">
     <%= f.label :remark %><br>
-    <%= f.text_area :remark, class: "form-control"  %>
+    <%= f.text_area :remark, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>
+
+ 
 <% end %>

@@ -12,39 +12,47 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :bank_name %><br>
-    <%= f.select :bank_name, ['Acleda Bank', 'Maybank'], class:"selectpicker" %>
+    <%= f.select :bank_name, ['Acleda Bank', 'Maybank'], {}, :class => "selectpicker" %>
   </div>
-  <div class="field">
-    <%= f.label :acct_name %><br>
-    <%= f.text_field :acct_name, class: "form-control" %>
+  <div class="form-group row">
+    <div class="field col-md-3">
+      <%= f.label :acct_name %><br>
+      <%= f.text_field :acct_name, class: "form-control" %>
+    </div>
+    <div class="field col-md-3">
+      <%= f.label :acct_num %><br>
+      <%= f.text_field :acct_num, placeholder: "0000-00000000-00", class: "form-control" %>
+    </div>
+    <div class="field col-md-3">
+      <%= f.label :tel_bank_acct %><br>
+      <%= f.text_field :tel_bank_acct, class: "form-control" %>
+    </div>
+    <div class="field col-md-3">
+      <%= f.label :email_bank_acct %><br>
+      <%= f.text_field :email_bank_acct, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :acct_num %><br>
-    <%= f.text_field :acct_num, class: "form-control" %>
+
+  <div class="form-group row">
+    <div class="field col-md-2">
+      <%= f.label :support %><br>
+      <%= f.select :support, ['Standing Order', 'None Standing Order'], {}, class: "form-control" %> 
+     
+    </div>
+    <div class="field col-md-2">
+      <%= f.label :sevice %><br>
+      <%= f.select :sevice, ['Fixed', 'IB', 'Fixed & IB'], {}, class: "form-control" %>
+    </div>
+    <div class="field col-md-8">
+      <%= f.label :date_create %><br>
+      <%= f.date_select :date_create, {:order => [:day, :month, :year], :start_year => 2000, :end_year => 2020}, :class => "selectpicker" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :tel_bank_acct %><br>
-    <%= f.text_field :tel_bank_acct, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :email_bank_acct %><br>
-    <%= f.text_field :email_bank_acct, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :support %><br>
-    <%= f.text_field :support, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :sevice %><br>
-    <%= f.text_field :sevice, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :date_create %><br>
-    <%= f.date_select :date_create %>
-  </div><br>
+  <br>
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>
+
 <% end %>

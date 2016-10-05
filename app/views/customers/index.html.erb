@@ -16,6 +16,7 @@
       <th><%= t "label.email_japan" %></th>
       <th><%= t "label.address" %></th>
       <th><%= t "label.remark" %></th>
+      <th><%= t "label.created_at" %></th>
       <% if user_signed_in? && current_user.admin? %>
         <th colspan="2"></th>
       <% end %>
@@ -33,6 +34,7 @@
         <td><%= customer.email_japan %></td>
         <td><%= customer.address %></td>
         <td><%= customer.remark %></td>
+        <td><%= customer.created_at.strftime("%d/%-b/%-Y") %></td>
         <% if user_signed_in? && current_user.admin? %>
           <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
           <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

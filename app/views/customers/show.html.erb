@@ -5,68 +5,73 @@
     <%= image_tag @customer.image_url %><br><br>
 
     <p>
-      <strong><%= t "fist_name" %></strong>
+      <strong><%= t "label.first_name" %>:</strong>
       <%= @customer.first_name %>
     </p>
 
     <p>
-      <strong>Last name:</strong>
+      <strong><%= t "label.last_name" %>:</strong>
       <%= @customer.last_name %>
     </p>
 
     <p>
-      <strong>Kanji first name:</strong>
+      <strong><%= t "label.kanji_first_name" %>:</strong>
       <%= @customer.kanji_first_name %>
     </p>
 
     <p>
-      <strong>Kanji last name:</strong>
+      <strong><%= t "label.kanji_last_name" %>:</strong>
       <%= @customer.kanji_last_name %>
     </p>
 
     <p>
-      <strong>Sex:</strong>
+      <strong><%= t "label.sex" %>:</strong>
       <%= @customer.sex %>
     </p>
 
     <p>
-      <strong>Tel japan:</strong>
+      <strong><%= t "label.tel_japan" %>:</strong>
       <%= @customer.tel_japan %>
     </p>
 
     <p>
-      <strong>Email japan:</strong>
+      <strong><%= t "label.email_japan" %>:</strong>
       <%= @customer.email_japan %>
     </p>
 
     <p>
-      <strong>Address:</strong>
+      <strong><%= t "label.address" %>:</strong>
       <%= @customer.address %>
     </p>
 
     <p>
-      <strong>Type of Customer:</strong>
+      <strong><%= t "label.customer_type" %>:</strong>
       <%= @customer.customer_type %>
     </p>
 
     <p>
-      <strong>Referrer: </strong>
+      <strong><%= t "label.referer" %>:</strong>
         <%= @refer.first_name %>
         <%= @refer.last_name %> 
     </p>
 
     <p>
-      <strong>Date of Arrival:</strong>
+      <strong><%= t "label.arrival_date" %>:</strong>
       <%= @customer.arrival_date.strftime("%d/%-b/%-Y") %>
     </p>
 
     <p>
-      <strong>Remark:</strong>
+      <strong><%= t "label.created_at" %>:</strong>
+      <%= @customer.created_at.strftime("%d/%-b/%-Y") %>
+    </p>
+
+    <p>
+      <strong><%= t "label.remark" %>:</strong>
       <%= @customer.remark %>
     </p>
 
     <p>
-      <strong>Editor Name:</strong>
+      <strong><%= t "label.name_of_creator" %>:</strong>
       <%= @customer.user.first_name %> <%= @customer.user.last_name %>
     </p>
 
@@ -79,46 +84,49 @@
     <% if @services.blank? %>
       <h3>No Service yet. Be the first to input one!</h3>
     <% else %>
-      <table class = "table">
+      <table class="table table-striped">
         <thead>
-
-          <th>No</th>
-          <th>Bank</th>
-          <th>Acct Name</th>
-          <th>Acct Num</th>
-          <th>Tel</th>
-          <th>Email</th>
-          <th>Support</th>
-          <th>Service</th>
-          <th>Create Date</th>
-          <% if user_signed_in? %>
-            <% if (current_user.admin?) %>
-              <th></th>
-              <th></th>
+          <tr>
+            <th>No</th>
+            <th>Bank</th>
+            <th>Acct Name</th>
+            <th>Acct Num</th>
+            <th>Tel</th>
+            <th>Email</th>
+            <th>Support</th>
+            <th>Service</th>
+            <th>Created On</th>
+            <% if user_signed_in? %>
+              <% if (current_user.admin?) %>
+                <th></th>
+                <th></th>
+              <% end %>
             <% end %>
-          <% end %>
-
+          </tr>
         </thead>
-        <% @services.each_with_index do |service, i| %>
+
+        
         <tbody>
-          
-          <td><p><b><%= i+1 %></b></p></td>
-          <td><p><%= service.bank_name %></p></td>
-          <td><p><%= service.acct_name %></p></td>  
-          <td><p><%= service.acct_num %></p></td>  
-          <td><p><%= service.tel_bank_acct %></p></td>  
-          <td><p><%= service.email_bank_acct %></p></td>  
-          <td><p><%= service.support %></p></td>  
-          <td><p><%= service.sevice %></p></td>  
-          <td><p><%= service.date_create.strftime("%d/%-b/%-Y") %></p></td>   
-          <% if user_signed_in?%>
-            <% if (current_user.admin?) %>
-              <td><%= link_to "Edit", edit_customer_service_path(@customer, service) %></td>
-              <td><%= link_to "Delete", customer_service_path(@customer, service), method: :delete %></td> 
+        <% @services.each_with_index do |service, i| %>
+          <tr>
+            <td><p><b><%= i+1 %></b></p></td>
+            <td><p><%= service.bank_name %></p></td>
+            <td><p><%= service.acct_name %></p></td>  
+            <td><p><%= service.acct_num %></p></td>  
+            <td><p><%= service.tel_bank_acct %></p></td>  
+            <td><p><%= service.email_bank_acct %></p></td>  
+            <td><p><%= service.support %></p></td>  
+            <td><p><%= service.sevice %></p></td>  
+            <td><p><%= service.date_create.strftime("%d/%-b/%-Y") %></p></td>   
+            <% if user_signed_in?%>
+              <% if (current_user.admin?) %>
+                <td><%= link_to "Edit", edit_customer_service_path(@customer, service) %></td>
+                <td><%= link_to "Delete", customer_service_path(@customer, service), method: :delete %></td> 
+              <% end %>
             <% end %>
-          <% end %>
-        </tbody>
+          </tr>
         <% end %>
+        </tbody>
       </table>
     <% end %>
 
@@ -134,38 +142,41 @@
     <% if @customer_histories.blank? %>
       <h3>No history yet, Be the first to add one!</h3>
     <% else %>
-      <table class = "table">
+      <table class = "table table-striped" >
         <thead>
-
-          <th>No</th>
-          <th>Problem</th>
-          <th>solution</th>
-          <th>Remark</th>
-          <th>Date</th>
-          <% if user_signed_in? %>
-            <% if (current_user.admin?) %>
-              <th></th>
-              <th></th>
+          <tr>
+            <th>No</th>
+            <th>Problem</th>
+            <th>Solution</th>
+            <th>Remark</th>
+            <th>Created On</th>
+            <% if user_signed_in? %>
+              <% if (current_user.admin?) %>
+                <th></th>
+                <th></th>
+              <% end %>
             <% end %>
-          <% end %>
-
+          </tr>
         </thead>
-        <% @customer_histories.each_with_index do |customer_history, i| %>
+        
         <tbody>
-          
-          <td><p><b><%= i+1 %></b></p></td>
-          <td><p><%= customer_history.problem %></p></td>
-          <td><p><%= customer_history.solution %></p></td>  
-          <td><p><%= customer_history.remark %></p></td>  
-          <td><p><%= customer_history.date_create.strftime("%d/%-b/%-Y") %></p></td>  
-          <% if user_signed_in?%>
-            <% if (current_user.admin?) %>
-              <td><%= link_to "Edit", edit_customer_customer_history_path(@customer, customer_history) %></td>
-              <td><%= link_to "Delete", customer_customer_history_path(@customer, customer_history), method: :delete %></td> 
+          <% @customer_histories.each_with_index do |customer_history, i| %>
+          <tr>
+            <td><p><b><%= i+1 %></b></p></td>
+            <td><p><%= customer_history.problem %></p></td>
+            <td><p><%= customer_history.solution %></p></td>  
+            <td><p><%= customer_history.remark %></p></td>  
+            <td><p><%= customer_history.date_create.strftime("%d/%-b/%-Y") %></p></td>  
+            <% if user_signed_in?%>
+              <% if (current_user.admin?) %>
+                <td><%= link_to "Edit", edit_customer_customer_history_path(@customer, customer_history) %></td>
+                <td><%= link_to "Delete", customer_customer_history_path(@customer, customer_history), method: :delete %></td> 
+              <% end %>
             <% end %>
+          </tr>
           <% end %>
         </tbody>
-        <% end %>
+
       </table>
     <% end %>
      <% if user_signed_in?%>

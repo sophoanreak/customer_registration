@@ -3,7 +3,8 @@ class CustomersController < ApplicationController
   before_action :authenticate_user!, except: [:search, :index]
   before_action :check_user, except: [:search, :index]
   before_action :check_reference, except: [:search, :index, :show]
-  
+  before_action :backup
+
   def search
     if params[:search].present?
       @customers = Customer.search(params[:search], page: params[:page], per_page: 5)
@@ -109,4 +110,14 @@ class CustomersController < ApplicationController
     def customer_params
       params.require(:customer).permit(:first_name, :last_name, :kanji_first_name, :kanji_last_name, :sex, :tel_japan, :email_japan, :address, :remark, :image, :arrival_date, :customer_type, :service_id)
     end
+
+    def backup
+      my_dir = Dir["C:/Sites/umc_customer_registration/db/development.sqlite3"]
+      my_dir.each do |filename|
+        name = File.basename('filename', '.sqlite3')[0,4]
+        dest_folder = "C:/Documents and Settings/sophoanreak/Desktop/UMCDataBackup/#{"development[" + Time.now.strftime("%F").to_s + "]"}.sqlite3/"
+        FileUtils.cp(filename, dest_folder)
+      end
+    end
+
 end

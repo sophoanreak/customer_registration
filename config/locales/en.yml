@@ -28,8 +28,8 @@ en:
     image: "Image"
     first_name: "First Name"
     last_name: "Last Name"
-    kanji_first_name: ""
-    kanji_last_name: ""
+    kanji_first_name: "Kanji First Name"
+    kanji_last_name: "Kanji Last Name"
     sex: "Sex"  
     tel_japan: "Tel Japan"
     email_japan: "Email Japan"
@@ -37,6 +37,7 @@ en:
     remark: "Remark"
     customer_type: "Customer Type"
     arrival_date: "Arrival Date"
+    created_at: "Created On"
 
   website:
     topic: "Customer Registration"
@@ -57,3 +58,11 @@ en:
         customer_type: "Customer Type"
         arrival_date: "Arrival Date"
         service_id: "Referrer"
+
+  activerecord:
+    attributes:
+      customer_history:
+        date_create: "Created On"
+        solution: "Solution"
+
+

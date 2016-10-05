@@ -12,22 +12,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :problem %><br>
-    <%= f.text_field :problem %>
+  <div class="row">
+  	<div class="col-md-6">
+  	  <div class="field">
+	    <%= f.label :problem %><br>
+	    <%= f.text_area :problem, class: "form-control" %>
+	  </div>
+  	</div>
+  	<div class="col-md-6">
+  	  <div class="field">
+	    <%= f.label :solution %><br>
+	    <%= f.text_area :solution, class: "form-control" %>
+	  </div>
+  	</div>
   </div>
-  <div class="field">
-    <%= f.label :solution %><br>
-    <%= f.text_field :solution %>
+
+  <div class="row">
+  	<div class="col-md-6">
+  	  <div class="field">
+	    <%= f.label :remark %><br>
+	    <%= f.text_area :remark, class: "form-control" %>
+	  </div>
+  	</div>
   </div>
-  <div class="field">
-    <%= f.label :remark %><br>
-    <%= f.text_field :remark %>
+  <div class="row">
+	<div class="col-md-8">
+      <div class="form-group">
+        <%= f.label :date_create %><br>
+        <%= f.date_select :date_create, {:order => [:day, :month, :year], :start_year => 2000, :end_year => 2020},
+          :class => "selectpicker" %>
+      </div> 
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date_create %><br>
-    <%= f.date_select :date_create %>
-  </div>
+  
   <br>
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
