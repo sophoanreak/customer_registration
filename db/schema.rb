@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921104608) do
+ActiveRecord::Schema.define(version: 20161013023506) do
 
   create_table "customer_histories", force: :cascade do |t|
     t.date     "date_create"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160921104608) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "customer_id"
+    t.string   "bank_location"
   end
 
   create_table "users", force: :cascade do |t|

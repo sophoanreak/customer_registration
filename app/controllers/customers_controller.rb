@@ -7,9 +7,9 @@ class CustomersController < ApplicationController
 
   def search
     if params[:search].present?
-      @customers = Customer.search(params[:search], page: params[:page], per_page: 5)
+      @customers = Customer.search(params[:search], page: params[:page], per_page: 17)
     else
-      @customers = Customer.all.paginate(page: params[:page], per_page: 5)
+      @customers = Customer.all.paginate(page: params[:page], per_page: 17)
     end
   end  
 
@@ -20,7 +20,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all.order("created_at DESC").paginate(page: params[:page], per_page: 8)
+    @customers = Customer.all.order("created_at DESC").paginate(page: params[:page], per_page: 17)
   end
 
   # GET /customers/1

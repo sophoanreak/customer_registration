@@ -39,6 +39,7 @@ jp:
     arrival_date: "到着日"
     referer: "紹介者"
     created_at: "開設日付"
+    bank_location: "銀行の場所"
     name_of_creator: "作成者の名前"
 
   activerecord:
@@ -53,10 +54,12 @@ jp:
         email_japan: "メールアドレス"
         address: "住所"
         remark: "メモー"
-        customer_type: ""
+        customer_type: "顧客"
         arrival_date: "到着日"
         service_id: "紹介者"
         created_at: "開設日付"
+      service:
+        bank_location: "銀行の場所"
   
   website:
     topic: "お客様登録"

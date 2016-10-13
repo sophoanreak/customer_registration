@@ -64,7 +64,7 @@
       <strong><%= t "label.created_at" %>:</strong>
       <%= @customer.created_at.strftime("%d/%-b/%-Y") %>
     </p>
-
+    
     <p>
       <strong><%= t "label.remark" %>:</strong>
       <%= @customer.remark %>
@@ -89,6 +89,7 @@
           <tr>
             <th>No</th>
             <th>Bank</th>
+            <th>Bank Location</th>
             <th>Acct Name</th>
             <th>Acct Num</th>
             <th>Tel</th>
@@ -111,6 +112,7 @@
           <tr>
             <td><p><b><%= i+1 %></b></p></td>
             <td><p><%= service.bank_name %></p></td>
+            <td><p><%= service.bank_location %></p></td>
             <td><p><%= service.acct_name %></p></td>  
             <td><p><%= service.acct_num %></p></td>  
             <td><p><%= service.tel_bank_acct %></p></td>  

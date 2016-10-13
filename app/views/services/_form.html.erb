@@ -11,10 +11,19 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :bank_name %><br>
-    <%= f.select :bank_name, ['Acleda Bank', 'Maybank'], {}, :class => "selectpicker" %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+      <%= f.label :bank_name %><br>
+      <%= f.select :bank_name, ['Acleda Bank', 'Maybank'], {}, :class => "selectpicker" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+      <%= f.label :bank_location %><br>
+      <%= f.select :bank_location, ['HQ', 'Psar Touch'], {}, {class: "form-control"} %>
+      </div>
+    </div>
   </div>
   <div class="form-group row">
     <div class="field col-md-3">

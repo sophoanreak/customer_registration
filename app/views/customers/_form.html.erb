@@ -69,13 +69,13 @@
     </div>
      <div class="col-md-2">
       <div class="form-group">
-        <%= f.label :type %><br>
+        <%= f.label :customer_type %><br>
         <%= f.select :customer_type, ['Come', 'Send files'],{} , {class: "form-control"} %>
       </div>
     </div>
     <div class="col-md-2">
       <div class="form-group">
-        <%= f.label :Referrer %><br>
+        <%= f.label :service_id %><br>
         <%= f.collection_select( :service_id, Reference.all, :id, :first_name, { prompt: true}, {class: "form-control"}) %>
       </div>
     </div>

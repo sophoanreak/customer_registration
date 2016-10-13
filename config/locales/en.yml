@@ -38,6 +38,8 @@ en:
     customer_type: "Customer Type"
     arrival_date: "Arrival Date"
     created_at: "Created On"
+    bank_location: "Bank Location"
+    referer: "Referrer"
 
   website:
     topic: "Customer Registration"
@@ -58,11 +60,10 @@ en:
         customer_type: "Customer Type"
         arrival_date: "Arrival Date"
         service_id: "Referrer"
-
-  activerecord:
-    attributes:
       customer_history:
         date_create: "Created On"
         solution: "Solution"
+      service:
+        bank_location: "Bank Location"
 
 
